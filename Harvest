@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Presmqtaniq
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var plosht = int.Parse(Console.ReadLine());
+            var kg = double.Parse(Console.ReadLine());
+            var litri = int.Parse(Console.ReadLine());
+            var Workers = int.Parse(Console.ReadLine());
+            var litriPr = plosht * kg * 0.4 / 2.5;
+            var LeftWine = litriPr - litri;
+            
+            if (litriPr<litri)
+            {
+                Console.WriteLine("It will be a tough winter! More {0} liters wine needed.", Math.Floor(litri-litriPr));
+            }
+            else 
+            {
+                Console.WriteLine("Good harvest this year! Total wine: {0} liters.", Math.Floor(litriPr));
+                Console.Write("{0} liters left -> {1} liters per person.", Math.Ceiling(LeftWine), Math.Ceiling(LeftWine / Workers));
+            }
+        }
+    }
+}
